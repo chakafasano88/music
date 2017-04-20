@@ -9,14 +9,26 @@
 
 <body>
 
-
     <div id="banner">
       <% if session[:user_id] %>
       <a href="/sign-out">Sign Out</a>
+      <a href=""
       <% else %>
       <a href="/sign-in">Sign In</a>
       <% end %>
+      <a href="/sign-up">Sign up</a>
     </div>
+
+    <div class="flash-message">
+      <% if flash[:notice] %>
+      <%= flash[:notice] %>
+      <% end %>
+    </div>
+
+
+
+
+
     <div>
         <h3> Music </h3>
         <div id="banner-2">
