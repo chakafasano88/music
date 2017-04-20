@@ -27,10 +27,6 @@ get "/photos" do
 erb :photos
 end
 
-get "/posts" do
-erb :posts
-end
-
 get "/user" do
   @users = User.all
 end
@@ -75,23 +71,19 @@ def current_user
   end
 end
 
-# post '/sign-in' do
-#   puts params[:user_name]
-#   puts params[:password]
+# get "/user_create" do
+#     User.create(user_name:"LeiMafia", password:"goaway92",  fname:"Leila", lname:"Mafoud")
 # end
-
-
-get "/user_create" do
-    User.create(user_name:"LeiMafia", password:"goaway92",  fname:"Leila", lname:"Mafoud")
-end
-
-get "/posts" do
-  @post = Post.all
-end
-
-get "/post_create" do
-  Post.create(title: "Bowery Electric", date: "1/21/2017", user_id: "12345")
-end
+# # Instance variable "post"
+# get "/posts" do
+#   @posts = Post.all
+#   @latest_posts = Post.all.last(2)
+#   erb :posts
+# end
+#
+# get "/post_create" do
+#   Post.create(title: "Bowery Electric", date: "1/21/2017", user_id: "12345")
+# end
 
 post '/new_account' do
   @user = User.create(params[:user])
@@ -99,10 +91,16 @@ post '/new_account' do
   redirect '/'
 end
 
+post '/posts' do
+  @post =  Post.create(params[:post])
+  session[:user_id] = @post.id
+  redirect '/'
+end
+
 get '/new_account' do
   erb :new_account
 end
 
-get 'user-posts' do
+get '/user-posts' do
   erb :user_posts
 end
