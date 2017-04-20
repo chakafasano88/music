@@ -36,6 +36,26 @@ get "/user" do
   @users = Users.all
 end
 
+get "/sign-in" do
+  erb :sign_in_form
+end
+
+post '/sign-in' do
+  @users = Users.where(user_name: params[:user_name]).first
+  if @users.password == params[:password]
+    redirect '/'
+  else
+    redirect '/login-failed'
+   end
+ end
+
+# post '/sign-in' do
+#   puts params[:user_name]
+#   puts params[:password]
+# end
+
+
+
 get "/user_create" do
     Users.create(user_name:"LeiMafia", password:"goaway92",  fname:"Leila", lname:"Mafoud")
 end
