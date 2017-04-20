@@ -9,12 +9,13 @@
 
 <body>
 
+
     <div id="banner">
-        <ul>
-            <li id="sale">Login</li>
-            <li id="news"><a href="/">Sign Up</a>
-            </li>
-        </ul>
+      <% if session[:user_id] %>
+      <a href="/sign-out">Sign Out</a>
+      <% else %>
+      <a href="/sign-in">Sign In</a>
+      <% end %>
     </div>
     <div>
         <h3> Music </h3>

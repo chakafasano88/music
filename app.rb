@@ -4,9 +4,10 @@ require "./models"
 #this is needed for sinatra flash
 require "bundler/setup"
 require "sinatra/flash"
-require "sinatra/flash"
+
 
 set :database, "sqlite3:HQ.sqlite3"
+set :sessions, true
 
 
 
@@ -33,16 +34,31 @@ erb :posts
 end
 
 get "/user" do
-  @users = Users.all
+  @users = User.all
 end
 
 get "/sign-in" do
   erb :sign_in_form
 end
 
+get "/sign-out" do
+  session[:user_id] = nil
+  redirect "/"
+end
+
+get "/login-failed" do
+  erb :login_failed
+end
+
+def current_user
+  if session [:user_id]
+    @current_user = User.find(session[:user_id])
+  end
+end
+
 post '/sign-in' do
-  @users = Users.where(user_name: params[:user_name]).first
-  if @users.password == params[:password]
+  @user = User.where(user_name: params[:user_name]).first
+  if @user && @user.password == params[:password]
     redirect '/'
   else
     redirect '/login-failed'
@@ -55,15 +71,14 @@ post '/sign-in' do
 # end
 
 
-
 get "/user_create" do
-    Users.create(user_name:"LeiMafia", password:"goaway92",  fname:"Leila", lname:"Mafoud")
+    User.create(user_name:"LeiMafia", password:"goaway92",  fname:"Leila", lname:"Mafoud")
 end
 
 get "/posts" do
-  @posts = Posts.all
+  @post = Post.all
 end
 
 get "/post_create" do
-  Posts.create(title: "Bowery Electric", date: "1/21/2017", user_id: "12345" )
+  Post.create(title: "Bowery Electric", date: "1/21/2017", user_id: "12345")
 end
