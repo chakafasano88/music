@@ -12,7 +12,6 @@ set :sessions, true
 get "/" do
 "Hello World"
 erb :home
-
 end
 
 get "/music" do
@@ -37,9 +36,46 @@ get '/new_account' do
 end
 
 post '/new_account' do
-  @user = User.create(params[:user])
+  @user = User.create(
+    fname: params[:fname],
+    lname: params[:lname],
+    user_name: params[:user_name],
+    password: params[:password]
+  )
+
+  @profile = Profile.create(
+    user_id: @user.id,
+    city: params[:city]
+  )
+
   session[:user_id] = @user.id
   redirect '/'
+end
+
+# This is the profile
+get "/profile/:id" do
+  @user_profile = Profile.find(params[:id])
+  # Profile.find_by(id: params[:id])
+
+  # Profile.find_by({
+  #   id: params[:id]
+  # })
+  #
+  # @hash = { id: params[:id] }
+  #
+  # Pofile.find_by(@hash)
+  #
+
+
+
+
+
+  erb :user_profile
+end
+
+get '/user-profile' do
+  @user_profile = Profile.find_by(user_id:session[:user_id])
+  erb :user_profile
 end
 
 get '/user-posts' do
@@ -85,20 +121,6 @@ get "/sign-out" do
   redirect "/"
 end
 
-# This is the profile
-get "/profile" do
-  # @user = Profile.find(session[:user_id])
-  erb :profile
-end
-
-post '/profile' do
-  @profiles =  Profile.create(params[:profile])
-  session[:user_id] = @profiles.id
-  redirect '/'
-end
-
-
-
 # Tracks users activity while logged in
 def current_user
   if session[:user_id]
@@ -106,7 +128,8 @@ def current_user
   end
 end
 
-
+# user = User.find_by(user_id: 'David')
+# user.destroy
 
 # get "/user_create" do
 #     User.create(user_name:"LeiMafia", password:"goaway92",  fname:"Leila", lname:"Mafoud")
@@ -114,4 +137,10 @@ end
 
 # get "/post_create" do
 #   Post.create(title: "Bowery Electric", date: "1/21/2017", user_id: "12345")
+# end
+
+# post '/profile' do
+#   @profiles =  Profile.create(params[:profile])
+#   session[:user_id] = @profiles.id
+#   redirect '/'
 # end
