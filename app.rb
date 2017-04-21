@@ -128,6 +128,12 @@ def current_user
   end
 end
 
+get "/delete" do
+  @user = User.find_by(user_id:session[:user_id])
+  @user.destroy
+  redirect "/"
+end
+
 # user = User.find_by(user_id: 'David')
 # user.destroy
 
