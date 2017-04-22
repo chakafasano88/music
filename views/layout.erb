@@ -2,22 +2,23 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Homepage</title>
-    <!-- <link rel="stylesheet" href="main.css">
-    <link href="https://fonts.googleapis.com/css?family=Muli|Julius+Sans+One|Source+Sans+Pro|Crimson+Text|Marck+Script|Poiret+One" rel="stylesheet"> -->
+    <title>Undersound</title>
+    <link rel="stylesheet" href="main.css">
+    <link href="https://fonts.googleapis.com/css?family=Crimson+Text|Permanent+Marker|Julius+Sans+One" rel="stylesheet"> -->
 </head>
-
 <body>
 
-    <div id="banner">
+<div>
+    <div id="top-banner">
       <% if session[:user_id] %>
       <a href="/sign-out">Sign Out</a>
-      <a href=""
+      <a href="/user-posts">Post Here</a>
       <% else %>
       <a href="/sign-in">Sign In</a>
       <% end %>
       <a href="/sign-up">Sign up</a>
     </div>
+  </div>
 
     <div class="flash-message">
       <% if flash[:notice] %>
@@ -25,12 +26,9 @@
       <% end %>
     </div>
 
-
-
-
-
-    <div>
-        <h3> Music </h3>
+    <div class="container">
+        <h3> UNDERSOUND </h3>
+        <h4>BY LISTENERS LIKE YOU</h4>
         <div id="banner-2">
         </div>
         <div id="nav-banner">
@@ -50,8 +48,10 @@
         </div>
     </div>
 
-
     <%=yield %>
+    <footer>
+    <p>  Mafoud,Fasaro,Epstein </p>
+    </footer>
 </body>
 <!--
 <script src="hygge.js"></script> -->

@@ -1,0 +1,126 @@
+body {
+  color:black;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+h3 {
+  position:absolute;
+  transform: translate (-50%,-50%);
+  font-size: 36px;
+  font-family: 'Permanent Marker', sans-serif;
+  margin-top: .2%;
+  margin-left: 40%;
+}
+
+h4 {
+  position:absolute;
+  transform: translate (-50%,-50%);
+  font-size: 11px;
+  margin-top: 4.7%;
+  margin-left: 44%;
+  font-family: 'Julius Sans One', sans-serif;
+  font-style: italic;
+  font-weight: lighter;
+  FON
+}
+#top-banner {
+  height:6%;
+  position: fixed;
+  margin-top: -2%;
+  width:100%;
+  background-color: #000000;
+  text-decoration: none;
+  }
+
+#top-banner a {
+  display:inline-block;
+  list-style-type: none;
+  float:right;
+  margin-top: .5%;
+  margin-left: .5%;
+  padding-right: 3%;
+  font-weight: bold;
+  color:#fff;
+  text-decoration: none;
+  }
+
+#banner-2 {
+    height:.2%;
+    margin-top: 6%;
+    width:100%;
+    background-color: #b8b5bf;
+    position: absolute;
+  }
+
+#nav-banner {
+  background-color: #fff;
+  margin-top: 2%;
+  display:block;
+}
+
+.nav {
+  display:block;
+  margin-top: -.2;
+  font-family: verdana;
+}
+
+.nav li {
+  display: inline-block;
+  font-weight: 50;
+  font-size: 14px;
+  margin-top: 6.5%;
+}
+
+.nav li a {
+  text-decoration: none;
+  font-family: 'Crimson Text', serif;
+  color: #000000;
+  padding-right: 30px;
+}
+
+body {
+  position: relative;
+  padding-bottom:40px;
+}
+
+#container {
+   min-height:100%;
+   position:relative;
+}
+
+#home-pic {
+  text-align: center;
+  width:90%;
+  margin-left: 5%;
+  margin-bottom: 20px;
+}
+
+
+#video {
+  position:fixed;
+  text-align:center;
+  width: 45%;
+  height:45%;
+  transform: translate (-50%,-50%);
+  z-index:-100;
+}
+
+footer {
+  position: absolute;
+  bottom:0;
+  width:100%;
+  height:40px;
+  background:#000000;
+  margin-bottom: 100px;
+  margin-bottom: -10px;
+  color:#fff;
+  text-align: right;
+  clear:both;
+  }
+
+  footer p {
+    margin-right: 20px;
+    font-family: 'Crimson Text', serif;
+    font-weight: lighter;
+    font-size: 15px;
+  }

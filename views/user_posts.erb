@@ -1,4 +1,9 @@
-<form class="" action="index.html" method="post">
-  <input type="text" name="" size="35" placeholder="Type Text Here" value="">
-  <button type="button" name="button">Post</button>
+<form method="post" action="/posts">
+  <label for="title">Title:</label>
+  <input type="text" name="post[title]">
+  <label for=date"">Date:</label>
+  <input type="text" name="post[date]">
+  <label for="content">Content:</label>
+  <input type="text" name="post[content]">
+  <input type="submit">
 </form>
