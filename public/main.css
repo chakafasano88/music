@@ -30,7 +30,7 @@ h4 {
   width:100%;
   background-color: #000000;
   text-decoration: none;
-  }
+}
 
 #top-banner a {
   display:inline-block;
@@ -42,7 +42,7 @@ h4 {
   font-weight: bold;
   color:#fff;
   text-decoration: none;
-  }
+}
 
 #banner-2 {
     height:.2%;
@@ -50,7 +50,7 @@ h4 {
     width:100%;
     background-color: #b8b5bf;
     position: absolute;
-  }
+}
 
 #nav-banner {
   background-color: #fff;
@@ -90,9 +90,10 @@ body {
 
 #home-pic {
   text-align: center;
-  width:90%;
-  margin-left: 5%;
+  width:95%;
+  margin-left: 2.5%;
   margin-bottom: 20px;
+  max-height:650px;
 }
 
 
@@ -116,11 +117,35 @@ footer {
   color:#fff;
   text-align: right;
   clear:both;
-  }
+}
 
-  footer p {
-    margin-right: 20px;
-    font-family: 'Crimson Text', serif;
-    font-weight: lighter;
-    font-size: 15px;
-  }
+footer p {
+  margin-right: 20px;
+  font-family: 'Crimson Text', serif;
+  font-weight: lighter;
+  font-size: 15px;
+}
+
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #b8b5bf;
+  border-radius: 10px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical
+}
+
+input[type=submit] {
+  background-color: #000;
+  color: #fff;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.blog-posts {
+  font-weight: bold;
+  list-style: none;
+}
