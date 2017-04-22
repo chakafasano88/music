@@ -149,3 +149,13 @@ input[type=submit] {
   font-weight: bold;
   list-style: none;
 }
+
+.pics {
+  display:inline;
+  max-width: 350px;
+  max-height:350px;
+}
+
+.audio-container {
+  display:inline;
+}
