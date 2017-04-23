@@ -30,7 +30,7 @@ get "/user" do
   @users = User.all
 # erb :users
 end
-
+# ========= Allows user to create username and profile ==========
 get '/new_account' do
   erb :new_account
 end
@@ -47,12 +47,11 @@ post '/new_account' do
     user_id: @user.id,
     city: params[:city]
   )
-
   session[:user_id] = @user.id
   redirect '/'
 end
 
-# This is the profile
+#==========
 get "/profile/:id" do
   @user_profile = Profile.find(params[:id])
   # Profile.find_by(id: params[:id])
@@ -65,11 +64,6 @@ get "/profile/:id" do
   #
   # Pofile.find_by(@hash)
   #
-
-
-
-
-
   erb :user_profile
 end
 
@@ -77,12 +71,12 @@ get '/user-profile' do
   @user_profile = Profile.find_by(user_id:session[:user_id])
   erb :user_profile
 end
-
+# ========= Allows users to post ============
 get '/user-posts' do
   erb :user_posts
 end
 
-# Instance variable "post", shows recent posts
+# Instance variable "post", shows 10 recent posts
 get "/posts" do
   @posts = Post.all
   @latest_posts = Post.all.last(10)
@@ -92,9 +86,9 @@ end
 post '/posts' do
   @post =  Post.create(params[:post])
   session[:user_id] = @post.id
-  redirect '/'
+  redirect '/posts'
 end
-
+# ========= Sign up and Sign in ===========
 get "/sign-up" do
   erb :sign_up
 end
@@ -145,7 +139,7 @@ end
 #   Post.create(title: "Bowery Electric", date: "1/21/2017", user_id: "12345")
 # end
 
-# post '/profile' do
+# post '/MyProfile' do
 #   @profiles =  Profile.create(params[:profile])
 #   session[:user_id] = @profiles.id
 #   redirect '/'
