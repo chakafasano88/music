@@ -80,6 +80,7 @@ end
 get "/posts" do
   @posts = Post.all
   @latest_posts = Post.all.last(10)
+
   erb :posts
 end
 
@@ -128,7 +129,7 @@ get "/delete" do
   redirect "/"
 end
 
-# user = User.find_by(user_id: 'David')
+# user = User.find_by(user_id:])
 # user.destroy
 
 # get "/user_create" do

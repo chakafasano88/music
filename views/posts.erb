@@ -1,6 +1,6 @@
 <ul class="blog-posts">
 <% @latest_posts.each do |post| %>
-<li id="author"> By: <%= post[:user_name] %> </li>
+<li id="author"> By: <%= current_user.find_by(session[:user_name],[:to_str]) %> </li>
 <li id="title"> Title: <%= post.title %> </li>
 <li id="content"> Content: <%= post.content %> </li>
 <% end %>
