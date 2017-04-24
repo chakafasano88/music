@@ -7,7 +7,11 @@ require "sinatra/flash"
 
 
 set :database, "sqlite3:HQ.sqlite3"
-set :sessions, true
+enable :sessions
+
+before do
+  current_user
+end
 
 get "/" do
 "Hello World"
@@ -81,13 +85,13 @@ end
 get "/posts" do
   @posts = Post.all
   @latest_posts = Post.all.last(10)
-
   erb :posts
 end
 
 post '/posts' do
-  @post =  Post.create(params[:post])
-  session[:user_id] = @post.id
+  @post =  Post.new(params[:post])
+  @post.user_id = @current_user.id
+  @post.save
   redirect '/posts'
 end
 # ========= Sign up and Sign in ===========
@@ -120,7 +124,7 @@ end
 # Tracks users activity while logged in
 def current_user
   if session[:user_id]
-    User.find(session[:user_id])
+    @current_user = User.find(session[:user_id])
   end
 end
 
