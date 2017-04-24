@@ -69,6 +69,7 @@ end
 
 get '/user-profile' do
   @user_profile = Profile.find_by(user_id:session[:user_id])
+  @profile = Profile.all
   erb :user_profile
 end
 # ========= Allows users to post ============
