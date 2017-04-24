@@ -1,2 +1,8 @@
-This page should show CURRENT_USERNAME_ and CURRENT_USERS POSTS.
-This should also have a "delete user and edit user button"
+<!-- This page should show CURRENT_USERNAME_ and CURRENT_USERS POSTS.
+This should also have a "delete user and edit user button" -->
+<ul>
+<% @user_profile %>
+<% @profile.each do |profile| %>
+<li>  City: <%= profile.city %> </li>
+<% end %>
+</ul>
