@@ -191,7 +191,9 @@ input[type=submit] {
 }
 
 .user#delete {
-  float:right;
+float:right;
+display:block;
+margin-top: -34px;
 }
 
 #userprofile {

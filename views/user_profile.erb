@@ -10,9 +10,10 @@ This should also have a "delete user and edit user button" -->
   New Username:<input type="text" name="user_name" value="<%= @current_user.user_name %>">
 </br>
   New Password:<input type="text" name="password" value="<%= @current_user.password %>">
+</br>
+  <button class="user" type="submit" name="button">Edit Profile</button>
 </form>
 <form method="post" action="/delete_profile">
-  <button class="user" type="submit" name="button">Edit Profile</button>
-  <button class="user" id="delete" type="submit" name="button">Delete Account</button>
+<button class="user" id="delete" type="submit" name="button">Delete Account</button>
 </form>
 </div>

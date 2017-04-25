@@ -124,6 +124,7 @@ end
 post '/delete_profile' do
   session[:user_id] = nil
 	@current_user.destroy
+  flash[:notice] = "Your account has been deleted"
 	redirect '/'
 end
 
