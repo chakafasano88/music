@@ -29,11 +29,13 @@ end
 get "/photos" do
 erb :photos
 end
+
 # Includes instance method for all Users
-get "/user" do
+get "/directory" do
   @users = User.all
-# erb :users
+erb :directory
 end
+
 # ========= Allows user to create username and profile ==========
 get '/new_account' do
   erb :new_account
