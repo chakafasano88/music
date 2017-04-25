@@ -200,5 +200,13 @@ input[type=submit] {
 }
 
 #edit-profile {
-    background-color: #dcdfe5;
+  background-color: #dcdfe5;
+}
+
+#flash-message {
+  margin-top: 40px;
+  font-size: 12px;
+  color:red;
+  font-style: italic;
+  text-align: center;
 }
