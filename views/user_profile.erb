@@ -1,16 +1,18 @@
 <!-- This page should show CURRENT_USERNAME_ and CURRENT_USERS POSTS.
 This should also have a "delete user and edit user button" -->
-
-
+<div id= "edit-profile">
 <form id="userprofile" method="post" action="/user_profile">
-  <button class="user" type="submit" name="button">Edit Profile</button>
-  <br>
-  <br>
+</br>
   First Name:<input type="text" name="fname" value="<%= @current_user.fname %>">
+</br>
   Last Name:<input type="text" name="lname" value="<%= @current_user.lname %>">
+</br>
   New Username:<input type="text" name="user_name" value="<%= @current_user.user_name %>">
+</br>
   New Password:<input type="text" name="password" value="<%= @current_user.password %>">
 </form>
 <form method="post" action="/delete_profile">
-  <button class="user" type="submit" name="button">Delete Account</button>
+  <button class="user" type="submit" name="button">Edit Profile</button>
+  <button class="user" id="delete" type="submit" name="button">Delete Account</button>
 </form>
+</div>
