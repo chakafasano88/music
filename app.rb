@@ -57,17 +57,7 @@ end
 
 #==========
 get "/profile/:id" do
-  @user_profile = Profile.find(params[:id])
-  # Profile.find_by(id: params[:id])
 
-  # Profile.find_by({
-  #   id: params[:id]
-  # })
-  #
-  # @hash = { id: params[:id] }
-  #
-  # Pofile.find_by(@hash)
-  #
   erb :user_profile
 end
 
@@ -128,11 +118,35 @@ def current_user
   end
 end
 
-get "/delete" do
-  @user = User.find_by(user_id:session[:user_id])
-  @user.destroy
-  redirect "/"
+# Deletes a user
+post '/delete_profile' do
+  session[:user_id] = nil
+	@current_user.destroy
+	redirect '/'
 end
+
+get '/edit_user' do
+  @current_user.update
+  erb :edit_user
+end
+
+# update post
+post '/user_profile' do
+	@current_user.update(
+  fname: params[:fname],
+  lname: params[:lname],
+  user_name: params[:user_name],
+  password: params[:password]
+  )
+	@current_user.save
+	redirect '/'
+end
+
+get "/profile/:id" do
+
+
+end
+
 
 # user = User.find_by(user_id:])
 # user.destroy

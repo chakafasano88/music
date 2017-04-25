@@ -1,6 +1,6 @@
 <ul class="blog-posts">
 <% @latest_posts.each do |post| %>
-<li id="author"> By: <%= post.user.user_name %> </li>
+<li id="author"> By: <a href="/user-profile"><%= post.user.user_name %></a> </li>
 <li id="title"> Title: <%= post.title %> </li>
 <li id="content"> Content: <%= post.content %> </li>
 <% end %>
