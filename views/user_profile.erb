@@ -2,17 +2,15 @@
 This should also have a "delete user and edit user button" -->
 
 
-<form id="edit" action="/user_profile" method="post">
-  <button type="submit" name="button">Edit</button>
+<form id="userprofile" method="post" action="/user_profile">
+  <button class="user" type="submit" name="button">Edit Profile</button>
   <br>
   <br>
-  First Name:<input type="text" name="fname" value="">
+  First Name:<input type="text" name="fname" value="<%= @current_user.fname %>">
   Last Name:<input type="text" name="lname" value="<%= @current_user.lname %>">
   New Username:<input type="text" name="user_name" value="<%= @current_user.user_name %>">
   New Password:<input type="text" name="password" value="<%= @current_user.password %>">
 </form>
-<br>
-<br>
 <form method="post" action="/delete_profile">
-  <button type="submit" name="button">Delete Account</button>
+  <button class="user" type="submit" name="button">Delete Account</button>
 </form>
