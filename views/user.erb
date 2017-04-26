@@ -1,0 +1,12 @@
+<%= @user[:fname] %>
+
+<%= @user[:lname] %>
+
+<%= @user.profile[:city] %>
+
+<ul>
+<% @user.posts.each do |post| %>
+<li> Title: <%= post[:title] %> </li>
+<li> Content: <%= post[:content] %> </li>
+<% end %>
+</ul>

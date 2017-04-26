@@ -11,3 +11,10 @@ end
 class Profile < ActiveRecord::Base
   belongs_to :user
 end
+
+# @user.posts
+# @user.profile
+
+# @post.user
+
+# @profile.user

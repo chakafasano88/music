@@ -4,6 +4,7 @@ require "./models"
 #this is needed for sinatra flash
 require "bundler/setup"
 require "sinatra/flash"
+require 'pp'
 
 
 set :database, "sqlite3:HQ.sqlite3"
@@ -36,6 +37,11 @@ get "/directory" do
 erb :directory
 end
 
+# get "/user/:id" do
+#   @user  = params[:id]
+# erb :user
+# end
+
 # ========= Allows user to create username and profile ==========
 get '/new_account' do
   erb :new_account
@@ -53,6 +59,9 @@ post '/new_account' do
     user_id: @user.id,
     city: params[:city]
   )
+
+  @user.profile = @profile
+
   session[:user_id] = @user.id
   redirect '/'
 end
@@ -82,7 +91,7 @@ end
 
 post '/posts' do
   @post =  Post.new(params[:post])
-  @post.user_id = @current_user.id
+  @post.user = @current_user
   @post.save
   redirect '/posts'
 end
@@ -145,10 +154,13 @@ post '/user_profile' do
 	redirect '/'
 end
 
-get "/profile/:id" do
-
-
+get '/user/:id' do
+  @user = User.find(params[:id])
+  pp(@user)
+  # @post = User.post
+  erb :user
 end
+
 
 
 # user = User.find_by(user_id:])
